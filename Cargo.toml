@@ -1,0 +1,41 @@
+[workspace]
+resolver = "2"
+# Keep in the lexicographic order!
+# Remove a member if it's used as a dependency in the workspace.
+members = [
+    "nft",
+]
+
+[workspace.package]
+homepage = "https://wiki.gear-tech.io/docs/examples/prerequisites"
+documentation = "https://dapps.gear.rs"
+authors = ["TheDefi Network <liki@thedefi.network>"]
+version = "1.1.0"
+license = "MIT"
+edition = "2021"
+publish = false
+
+[workspace.dependencies]
+nft = { path = "nft" }
+nft-io = { path = "nft/io" }
+
+# Local contracts
+# Keep in the lexicographic order!
+
+# Gear
+
+gstd = "1.1.0"
+gear-wasm-builder = "1.1.0"
+gmeta = "1.1.0"
+gclient = "1.1.0"
+gtest = { git = "https://github.com/gear-tech/gear", tag = "v1.1.0" }
+gear-core = "1.1.0"
+
+# External
+
+primitive-types = { version = "0.12", default-features = false }
+sp-core = { version = "22", default-features = false, features = ["full_crypto", "sp-externalities"] }
+sp-core-hashing = { version = "10", default-features = false }
+tokio = "1"
+scale-info = { version = "2", default-features = false }
+parity-scale-codec = { version = "3", default-features = false }
