@@ -30,11 +30,18 @@ Note that it's built from the latest commit on the `master` branch. Therefore, w
 cargo b
 ```
 
+### 🏗️ Build all contract & states - Release version
+
+```sh
+cargo b -p "nft" --release
+```
+
 ### ✅ Build & run tests
 
 Run all tests, except `gclient` ones:
 ```sh
 cargo t -- --skip gclient
+
 ```
 
 Run all tests:

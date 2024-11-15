@@ -183,11 +183,11 @@ pub enum NftEvent {
 #[derive(Default, Debug, Encode, Decode, TypeInfo, Clone)]
 pub struct TokenMetadata {
     // ex. "CryptoKitty #100"
-    pub name: String,
+    // pub name: String,
     // free-form description
-    pub description: String,
+    // pub description: String,
     // URL to associated media, preferably to decentralized, content-addressed storage
-    pub media: String,
+    // pub media: String,
     // URL to an off-chain JSON file with more info.
     pub reference: String,
 }

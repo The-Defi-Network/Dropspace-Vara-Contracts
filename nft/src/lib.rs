@@ -43,9 +43,6 @@ impl Nft {
         let source: ActorId = msg::source();
         let value = msg::value();
 
-        debug!("Funds: {}", value);
-        debug!("Buying Qty: {}", amount);
-
         self.check_config();
         self.check_zero_address(&source);
 
@@ -127,11 +124,7 @@ impl Nft {
         self.check_collection_owner();
 
         let source: ActorId = msg::source();
-        let value = msg::value();
         
-        debug!("Funds: {}", value);
-        debug!("Reserving Qty: {}", amount);
-
         self.check_config();
         self.check_zero_address(&source);
 
@@ -173,9 +166,9 @@ impl Nft {
             .or_insert_with(|| HashSet::from([self.token_id]));
 
         let token_metadata = TokenMetadata {
-            name: self.token_id.to_string(),
-            description: "".to_string(),
-            media: "".to_string(),
+            // name: self.token_id.to_string(),
+            // description: "".to_string(),
+            // media: "".to_string(),
             reference: "".to_string(),
         };
 
@@ -538,13 +531,13 @@ extern "C" fn state() {
             msg::reply(StateReply::TokenApprovals(approval), 0).expect("Unable to share the state");
         }
         StateQuery::TokenMetadata { token_id } => {
-            let token_metadata = nft.token_metadata_by_id.get(&token_id).cloned().unwrap();
+            // let token_metadata = nft.token_metadata_by_id.get(&token_id).cloned().unwrap();
             msg::reply(
                 // StateReply::TokenMetadata(nft.token_metadata_by_id.get(&token_id).cloned()),
                 StateReply::TokenMetadata(Some(TokenMetadata {
-                    name: token_metadata.name,
-                    description: "".to_string(),
-                    media: "".to_string(),
+                    // name: token_metadata.name,
+                    // description: "".to_string(),
+                    // media: "".to_string(),
                     reference: nft.collection.base_uri.to_string() + &token_id.to_string(),
                 })),
                 0,
